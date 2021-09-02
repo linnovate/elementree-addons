@@ -131,24 +131,24 @@ class ElementreeAddons {
 	/**
 	 * loading scripts on init
 	 */
-	public function elementor_experts_load_scripts_admin(){
-		// remove default style
-		add_action('wp_enqueue_scripts', function() {
-		  wp_dequeue_style( 'twentynineteen-style' );
-		  wp_dequeue_style( 'experts-style' );
-		   wp_dequeue_style( 'hello-elementor-child' );
-		  wp_dequeue_style( 'hello-elementor' );
+// 	public function elementor_experts_load_scripts_admin(){
+// 		// remove default style
+// 		add_action('wp_enqueue_scripts', function() {
+// 		  wp_dequeue_style( 'twentynineteen-style' );
+// 		  wp_dequeue_style( 'experts-style' );
+// 		   wp_dequeue_style( 'hello-elementor-child' );
+// 		  wp_dequeue_style( 'hello-elementor' );
 		 
-		}, 100);
+// 		}, 100);
 		
-		wp_enqueue_media();
-	}
+// 		wp_enqueue_media();
+// 	}
 
-	public static function elementor_experts_load_settings(){
-		if (is_null(self::$settings)) {
-//             self::$settings = new ExpertsSettings();
-        }
-	}
+// 	public static function elementor_experts_load_settings(){
+// // 		if (is_null(self::$settings)) {
+// //             self::$settings = new ExpertsSettings();
+// //         }
+// 	}
 
 	/**
 	 * Plugin constructor.
@@ -163,8 +163,8 @@ class ElementreeAddons {
         if (!version_compare(ELEMENTOR_VERSION, '1.8.0', '>=')) {
             return;
         }
-		add_action( 'admin_enqueue_scripts', array($this, 'elementor_experts_load_scripts_admin' ));
-		add_action( 'wp_enqueue_scripts', array($this, 'elementor_experts_load_scripts_admin' ));
+// 		add_action( 'admin_enqueue_scripts', array($this, 'elementor_experts_load_scripts_admin' ));
+// 		add_action( 'wp_enqueue_scripts', array($this, 'elementor_experts_load_scripts_admin' ));
 		//add_action( 'admin_enqueue_scripts', array($this, 'elementor_experts_load_settings'));
 
         add_action( 'elementor/init', array($this, 'registerCategories') );
@@ -173,16 +173,16 @@ class ElementreeAddons {
 		//
 		// register a new route for getting the settings values
 		//
-		add_action('rest_api_init', function () {
-  		register_rest_route( 'experts/v1/api', 'settings',array(
-                'methods'  => 'GET',
-                'callback' => array($this,'get_experts_settings_json'),
-				'permission_callback' => function () {
-					// to implement later
-					return true;
-				}
-			));  
-		}); 
+// 		add_action('rest_api_init', function () {
+//   		register_rest_route( 'experts/v1/api', 'settings',array(
+//                 'methods'  => 'GET',
+//                 'callback' => array($this,'get_experts_settings_json'),
+// 				'permission_callback' => function () {
+// 					// to implement later
+// 					return true;
+// 				}
+// 			));  
+// 		}); 
 	}
 
 	// sending the settings values when reaching the route:
