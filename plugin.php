@@ -76,9 +76,9 @@ class ElementreeAddons {
     public function registerCategories()
     {
         \Elementor\Plugin::instance()->elements_manager->add_category(
-            'elementor-experts',
+            'elementree-addons',
             array(
-                'title' => __('Elementor Experts', 'elementor-experts'),
+                'title' => __('Elementree Addons', 'elementree-addons'),
                 'icon'  => 'fa fa-plug'
             )
         );
@@ -132,7 +132,6 @@ class ElementreeAddons {
 	 * loading scripts on init
 	 */
 	public function elementor_experts_load_scripts_admin(){
-       wp_enqueue_script( 'elementor-experts', plugin_dir_url( __FILE__ ) . 'assets/js/elementor-experts.js', array('jquery'), false, true );
 		// remove default style
 		add_action('wp_enqueue_scripts', function() {
 		  wp_dequeue_style( 'twentynineteen-style' );
@@ -147,7 +146,7 @@ class ElementreeAddons {
 
 	public static function elementor_experts_load_settings(){
 		if (is_null(self::$settings)) {
-            self::$settings = new ExpertsSettings();
+//             self::$settings = new ExpertsSettings();
         }
 	}
 
@@ -208,10 +207,32 @@ add_action('elementor/loaded', function() {
 });
 
 
-add_action('admin_menu', function() {	
-	
+
+add_action('admin_menu', function() {
+
+//   add_menu_page(
+//     $page_title,
+//     $menu_title,
+//     $capability,
+//     $menu_slug, 
+//     function() use ( $widget_name, $settings ) {
+//       echo \Elementree\Plugin::$instance->get_markup($widget_name, $settings);
+//     },
+//     $icon_url,
+//     $position
+//   );
+
+//   add_submenu_page(
+//     $parent_slug,
+//     $page_title,
+//     $menu_title,
+//     $capability,
+//     $menu_slug,
+//     function() use ( $widget_name, $settings ) {
+//       echo \Elementree\Plugin::$instance->get_markup($widget_name, $settings);
+//     },
+//     $position
+//   );
+
 });
-
-
-
 

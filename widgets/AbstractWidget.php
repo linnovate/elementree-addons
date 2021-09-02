@@ -34,16 +34,17 @@ abstract class AbstractWidget extends Widget_Base
      *
      * Written in PHP and used to generate the final HTML.
      */
-    protected function render()
-    {
-        $component_name = $this->get_name();
+      protected function render() {
+
+        $widget_name = $this->get_name();
         $settings = $this->get_data();
-        $uuid = 'elementree-addons-' . $this->get_id();
 
         if ($settings) {
             $settings = $settings['settings'];
         }
-        
-        echo \ClientRender\Plugin::$instance->get_widget($component_name, $uuid, $settings);
-    }
+
+        echo \Elementree\Plugin::$instance->get_markup($widget_name, $settings);
+
+      }
+  
 }
